@@ -1,42 +1,18 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const navLinks = [
-  { name: 'Home', to: '/' },
-  { name: 'About', to: '/about' },
-  { name: 'Search', to: '/search' },
-];
-
-const Header = () => {
-  const location = useLocation();
-  return (
-    <div className="navbar bg-base-100 shadow sticky top-0 z-30">
-      <div className="navbar-start">
-        <Link to="/" className="btn btn-ghost normal-case text-2xl font-extrabold text-primary">
-          <span className="inline-block w-8 h-8 bg-gradient-to-br from-amber-400 to-rose-400 rounded-full mr-2"></span>
-          AceVoyager
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <ul className="menu menu-horizontal px-1 gap-2">
-          {navLinks.map(link => (
-            <li key={link.to}>
-              <Link
-                to={link.to}
-                className={
-                  location.pathname === link.to
-                    ? 'active font-bold text-primary'
-                    : 'font-semibold'
-                }
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};
+const Header = () => (
+  <header role="banner" className="bg-base-100 shadow sticky top-0 z-50">
+    <nav role="navigation" className="navbar max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <Link to="/" className="text-2xl font-extrabold text-primary">AceVoyager</Link>
+      <ul className="flex gap-4 items-center">
+        <li><Link to="/" className="btn btn-ghost btn-sm">Home</Link></li>
+        <li><Link to="/about" className="btn btn-ghost btn-sm">About</Link></li>
+        <li><Link to="/categories" className="btn btn-ghost btn-sm">Categories</Link></li>
+        <li><Link to="/search" className="btn btn-ghost btn-sm">Search</Link></li>
+      </ul>
+    </nav>
+  </header>
+);
 
 export default Header;
