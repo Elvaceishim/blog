@@ -7,37 +7,68 @@ import HeroSection from 'src/components/HeroSection';
 import CategoryList from 'src/components/CategoryList';
 import NewsletterSignup from 'src/components/NewsletterSignup';
 import PostCard from 'src/components/PostCard';
-import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
-import SEO from 'src/components/SEO';
+import { Helmet } from 'react-helmet-async';
 import AuthorCard from 'src/components/AuthorCard';
+
+const placeholderPosts = [
+  {
+    id: 1,
+    title: 'Stockholm on a Budget',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+    excerpt: "Sweden's capital is full of affordable adventures. Here's how to enjoy it for less.",
+  },
+  {
+    id: 2,
+    title: 'Japan Cherry Blossom Guide',
+    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
+    excerpt: 'Experience the magic of sakura season with our top tips for cherry blossom viewing.',
+  },
+  {
+    id: 3,
+    title: 'Peru: Machu Picchu Adventure',
+    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+    excerpt: 'A guide to hiking and exploring the wonders of Machu Picchu.',
+  },
+];
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchPosts() {
+            setLoading(true);
             const { data, error } = await supabase
                 .from('posts')
                 .select('*')
                 .order('created_at', { ascending: false });
-
-            if (error) {
-                console.error('Error fetching posts:', error);
-            } else {
+            if (!error && Array.isArray(data) && data.length > 0) {
                 setPosts(data);
+            } else {
+                setPosts([]); // fallback to placeholders if no real posts
             }
+            setLoading(false);
         }
-
         fetchPosts();
     }, []);
+
+    let content = null;
+    if (loading) {
+      content = null; // Show nothing while loading
+    } else if (Array.isArray(posts) && posts.length > 0) {
+      content = posts.map(post => <PostCard key={post.id} post={post} />);
+    } else {
+      content = placeholderPosts.map(post => <PostCard key={post.id} post={post} />);
+    }
 
     return (
       <div>
         <h1 className="sr-only">AceVoyager</h1>
-        <Header />
         <div className="max-w-6xl mx-auto px-4 py-8 md:py-16">
-          <SEO title="AceVoyager - Inspiring Travel Guides" description="Explore the world with our travel guides, tips, and stories from every continent." />
+          <Helmet>
+            <title>AceVoyager - Inspiring Travel Guides</title>
+            <meta name="description" content="Explore the world with our travel guides, tips, and stories from every continent." />
+          </Helmet>
           <section className="text-center py-16 px-4 bg-gradient-to-r from-amber-100 via-white to-rose-100 rounded-2xl shadow mb-8">
             <h1 className="text-5xl font-extrabold mb-4">Travel Smart. Explore the World.</h1>
             <p className="text-xl mb-6 text-gray-700">Inspiring travel guides, tips, and stories from every continent. Start your next adventure today!</p>
@@ -47,31 +78,7 @@ const HomePage = () => {
           <CategoryList />
           <h2 className="text-3xl font-bold mb-6 text-left text-primary">Latest Posts</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16">
-            {(posts.length === 0
-              ? [
-                  {
-                    id: 1,
-                    title: 'Stockholm on a Budget',
-                    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
-                    excerpt: "Sweden's capital is full of affordable adventures. Here's how to enjoy it for less.",
-                  },
-                  {
-                    id: 2,
-                    title: 'Japan Cherry Blossom Guide',
-                    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
-                    excerpt: 'Experience the magic of sakura season with our top tips for cherry blossom viewing.',
-                  },
-                  {
-                    id: 3,
-                    title: 'Peru: Machu Picchu Adventure',
-                    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
-                    excerpt: 'A guide to hiking and exploring the wonders of Machu Picchu.',
-                  },
-                ]
-              : posts
-            ).map(post => (
-              <PostCard key={post.id} post={post} />
-            ))}
+            {content}
           </div>
           <section className="bg-white rounded-2xl shadow p-8 max-w-2xl mx-auto mt-16 text-center">
             <h2 className="text-2xl font-bold mb-4">About the Author</h2>
@@ -89,7 +96,6 @@ const HomePage = () => {
           </section>
           <NewsletterSignup />
         </div>
-        <Footer />
       </div>
     );
 };

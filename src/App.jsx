@@ -9,32 +9,30 @@ import AboutPage from './pages/AboutPage';
 import CategoryPage from './pages/CategoryPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 function App() {
     return (
-        <>
+        <HelmetProvider>
             <Helmet>
                 <title>Test Helmet</title>
             </Helmet>
             <div className="flex flex-col min-h-screen font-sans bg-gradient-to-br from-amber-50 via-white to-rose-50 text-gray-800">
                 <Header />
-                <main className="flex-grow flex items-center justify-center">
-                  <div className="bg-white/80 rounded-2xl shadow-xl p-8 max-w-4xl w-full mx-auto my-8 backdrop-blur-sm">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/post/:id" element={<PostPage />} />
-                        <Route path="/dashboard" element={<Dashboard />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/category/:slug" element={<CategoryPage />} />
-                        <Route path="/search" element={<SearchPage />} />
-                        <Route path="*" element={<NotFoundPage />} />
-                    </Routes>
-                  </div>
+                <main className="flex-grow flex flex-col">
+                  <Routes>
+                      <Route path="/" element={<HomePage />} />
+                      <Route path="/post/:id" element={<PostPage />} />
+                      <Route path="/dashboard" element={<Dashboard />} />
+                      <Route path="/about" element={<AboutPage />} />
+                      <Route path="/category/:slug" element={<CategoryPage />} />
+                      <Route path="/search" element={<SearchPage />} />
+                      <Route path="*" element={<NotFoundPage />} />
+                  </Routes>
                 </main>
                 <Footer />
             </div>
-        </>
+        </HelmetProvider>
     );
 };
 

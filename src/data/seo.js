@@ -1,4 +1,4 @@
-const getSeo = (page, data = {}) => {
+const getSeo = (page) => {
   switch (page) {
     case 'home':
       return {
