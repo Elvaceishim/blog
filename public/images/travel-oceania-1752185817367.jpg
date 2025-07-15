@@ -1,0 +1,14 @@
+
+    <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="400" fill="#f0f8ff"/>
+      <text x="400" y="180" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">
+        Untitled
+      </text>
+      <text x="400" y="220" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">
+        Oceania Travel
+      </text>
+      <text x="400" y="250" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#999">
+        Generated Travel Image
+      </text>
+    </svg>
+  
