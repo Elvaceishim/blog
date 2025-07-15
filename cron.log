@@ -1527,3 +1527,100 @@ SyntaxError: Identifier 'unsplashUrl' has already been declared
     at node:internal/main/run_main_module:36:49
 
 Node.js v22.16.0
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+Environment check:
+- GEMINI_API_KEY: ✓ Set
+- DEEPSEEK_API_KEY: ✓ Set
+- OLLAMA_URL: http://localhost:11434/api/generate
+- LLAMA_MODEL: llama2
+- IMAGES_DIR: /Users/mac/blog/public/images
+Generating article for category: Oceania
+Trying model: Gemini
+Gemini request URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAdOAoq63pHy20qnH2gmi5GtXnr8OhdL4Q
+Gemini request body: {
+  "contents": [
+    {
+      "parts": [
+        {
+          "text": "\nWrite a detailed, SEO-optimized travel article about a trending topic, destination, or travel tips related to Oceania.\n\n- Use markdown for section headings and hyperlinks (e.g., ## Section Title, [keyword](https://example.com)).\n- Start with a catchy, keyword-rich title as an H1 (# Title) and a compelling meta description.\n- Keep paragraphs short (2–4 sentences each) and separate each paragraph with a single blank line.\n- Use bullet points or numbered lists where appropriate.\n- Do not use asterisks for formatting except for markdown.\n- All links should be in markdown format and embedded in relevant keywords for SEO.\n- Do not split sentences or headings across lines.\n- Ensure the article is at least 850 words and covers the topic comprehensively.\n- Use the latest SEO best practices for 2025, including semantic keywords, featured snippet formatting, and natural language.\n- CRITICAL: Do not rush - take your time to create valuable, informative content. Include specific details, examples, and practical information.\n"
+        }
+      ]
+    }
+  ],
+  "generationConfig": {
+    "temperature": 0.7,
+    "maxOutputTokens": 2048,
+    "topP": 0.8,
+    "topK": 40
+  }
+}
+Gemini response status: 200
+Gemini response data: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# Unveiling the Magic: Your Ultimate Guide to Sustainable Travel in Fiji\n\n**Meta Description:** Discover the pristine beauty of Fiji and embrace sustainable tourism.  Explore eco-lodges, participate in community projects, and minimize your environmental impact while experiencing the Fijian culture. Plan your eco-friendly Fijian adventure today!\n\n\n## Fiji: A Paradise for Responsible Travelers\n\nFiji, an archipelago in Melanesia, is renowned for its breathtaking landscapes, vibrant coral reefs, and warm, welcoming people.  But beyond the postcard-perfect beaches lies a growing movement towards sustainable tourism.  This guide will help you plan an unforgettable trip while minimizing your environmental footprint and supporting local communities.\n\n\n## Why Choose Sustainable Travel in Fiji?\n\nChoosing sustainable travel in Fiji offers numerous benefits. You'll contribute to the preservation of Fiji's incredible natural beauty, support local economies directly, and experience a more authentic and meaningful connection with the Fijian culture.  This responsible approach ensures that future generations can also enjoy this paradise.\n\n\n##  Eco-Friendly Accommodation in Fiji: Finding Your Perfect Stay\n\nFinding sustainable accommodation is crucial for responsible travel.  Many eco-lodges and resorts in Fiji prioritize environmental protection and community engagement.  Look for certifications like [Green Globe](https://www.greenglobe.com/) or [EarthCheck](https://earthcheck.org/) to ensure authenticity.\n\n\nThese eco-lodges often feature:\n\n*   Solar power and water conservation systems\n*   Locally sourced food and materials\n*   Waste reduction and recycling programs\n*   Support for local communities through employment and partnerships\n\n\n##  Experiencing Fijian Culture Responsibly: Respect and Engagement\n\nImmerse yourself in Fijian culture respectfully.  Learn a few basic Fijian phrases, participate in traditional ceremonies with permission, and be mindful of local customs.  Avoid contributing to cultural commodification and instead, seek out authentic experiences.\n\n\nConsider these options:\n\n*   Visiting a local village and engaging in a kava ceremony (ensure it's a community-led initiative, not a tourist trap).\n*   Taking a cooking class to learn about Fijian cuisine and ingredients.\n*   Participating in a community project, such as coral reef restoration or mangrove planting.\n\n\n##  Minimizing Your Environmental Impact in Fiji: Practical Tips\n\nEven with sustainable accommodation choices, individual actions matter.  Here's how to minimize your environmental impact:\n\n*   **Reduce plastic consumption:** Bring a reusable water bottle and shopping bag.  Say no to single-use plastics whenever possible.\n*   **Conserve water:** Take shorter showers and be mindful of water usage.\n*   **Respect wildlife:** Observe marine life from a distance and avoid disturbing nesting sites.  Choose operators committed to responsible wildlife encounters.\n*   **Support local businesses:** Opt for locally owned restaurants and shops to boost the local economy.\n\n\n##  Exploring Fiji's Natural Wonders Sustainably:  Activities and Adventures\n\nFiji offers a wealth of natural wonders to explore.  Choose activities that prioritize sustainability and minimize environmental impact.\n\n\nHere are some suggestions:\n\n*   **Snorkeling or diving:** Select reputable operators committed to responsible diving practices, avoiding damage to coral reefs.  [Discover Fiji's Coral Reefs](https://www.fiji.travel/things-to-do/coral-reefs)\n*   **Hiking:** Explore Fiji's lush rainforests on marked trails, avoiding off-trail excursions that could damage the environment.\n*   **Island hopping:** Choose smaller, eco-conscious boats for island hopping tours.\n\n\n##  Planning Your Sustainable Fijian Adventure: Resources and Information\n\nBefore you go, research sustainable tourism operators and plan your itinerary carefully.  Websites like [Tourism Fiji](https://www.fiji.travel/) offer information on sustainable tourism initiatives.  Look for operators who actively promote environmental and social responsibility.\n\n\n##  Frequently Asked Questions (FAQ) – Featured Snippet\n\n**Q: What makes Fiji a good destination for sustainable travel?**\n\nA: Fiji boasts incredible biodiversity and a strong focus on community-based tourism.  Many resorts and operators prioritize environmental protection and cultural preservation.\n\n**Q: How can I find sustainable accommodation in Fiji?**\n\nA: Look for eco-lodges and resorts with certifications like Green Globe or EarthCheck.  These certifications guarantee adherence to sustainable practices.\n\n**Q: What activities can I do in Fiji that are environmentally friendly?**\n\nA: Snorkeling, diving with responsible operators, hiking on marked trails, and island hopping on eco-conscious boats are great options.\n\n**Q: How can I minimize my environmental impact while in Fiji?**\n\nA: Reduce plastic consumption, conserve water, respect wildlife, and support local businesses.  These small actions collectively make a significant difference.\n\n\n## Conclusion: Embrace the Fijian Spirit of Sustainability\n\nFiji offers an unparalleled opportunity to experience a tropical paradise while embracing sustainable travel principles.  By choosing responsible accommodations, engaging respectfully with the local culture, and minimizing your environmental impact, you can contribute to the preservation of this incredible destination for generations to come.  Plan your sustainable Fijian adventure today and experience the magic responsibly!\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.2565741651357063
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 225,
+    "candidatesTokenCount": 1061,
+    "totalTokenCount": 1286,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 225
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1061
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash",
+  "responseId": "VMF2aPO5CaGThMIPgeLqmQU"
+}
+Gemini produced 677 words. Title: Unveiling the Magic: Your Ultimate Guide to Sustainable Travel in Fiji
+Trying model: DeepSeek
+DeepSeek request URL: https://api.deepseek.com/v1/chat/completions
+DeepSeek API key (first 10 chars): sk-58bef14...
+DeepSeek response status: 402
+DeepSeek error response: {"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_request_error"}}
+DeepSeek detailed error: Error: DeepSeek API error: 402 Payment Required - {"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_request_error"}}
+    at Object.generateWithDeepSeek [as fn] (/Users/mac/blog/generateAndPostArticles.js:328:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBestArticle (/Users/mac/blog/generateAndPostArticles.js:559:26)
+    at async main (/Users/mac/blog/generateAndPostArticles.js:701:38)
+DeepSeek failed: DeepSeek API error: 402 Payment Required - {"error":{"message":"Insufficient Balance","type":"unknown_error","param":null,"code":"invalid_request_error"}}
+Trying model: Llama2
+Llama request URL: http://localhost:11434/api/generate
+Llama model: llama2
+Llama detailed error: FetchError: request to http://localhost:11434/api/generate failed, reason: 
+    at ClientRequest.<anonymous> (/Users/mac/blog/node_modules/node-fetch/lib/index.js:1501:11)
+    at ClientRequest.emit (node:events:518:28)
+    at emitErrorEvent (node:_http_client:104:11)
+    at Socket.socketErrorListener (node:_http_client:518:5)
+    at Socket.emit (node:events:518:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  type: 'system',
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED'
+}
+Llama2 failed: request to http://localhost:11434/api/generate failed, reason: 
+Selected article from Gemini (677 words). Title: Unveiling the Magic: Your Ultimate Guide to Sustainable Travel in Fiji
+Generating image for article: "Unveiling the Magic: Your Ultimate Guide to Sustainable Travel in Fiji"
+Generating image for: "Unveiling the Magic: Your Ultimate Guide to Sustainable Travel in Fiji" (Oceania)
+Image saved to: /Users/mac/blog/public/images/travel-oceania-1752613213593.jpg
+Error: Cannot destructure property 'data' of '(intermediate value)' as it is null.
