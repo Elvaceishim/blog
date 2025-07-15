@@ -2,12 +2,9 @@ import React from 'react';
 import { FaTwitter, FaFacebook } from 'react-icons/fa';
 
 const SocialShare = ({ post }) => {
-  let url = '';
-  if (typeof window !== 'undefined' && window.location.href) {
-    url = window.location.href;
-  } else {
-    url = `https://example.com/post/${post.id}`;
-  }
+  const url = typeof window !== 'undefined' && window.location.href
+    ? window.location.href
+    : `https://yourdomain.com/post/${post.id}`;
   const text = encodeURIComponent(post.title);
   return (
     <div className="flex gap-4 my-6">

@@ -1624,3 +1624,73 @@ Generating image for article: "Unveiling the Magic: Your Ultimate Guide to Susta
 Generating image for: "Unveiling the Magic: Your Ultimate Guide to Sustainable Travel in Fiji" (Oceania)
 Image saved to: /Users/mac/blog/public/images/travel-oceania-1752613213593.jpg
 Error: Cannot destructure property 'data' of '(intermediate value)' as it is null.
+[dotenv@17.2.0] injecting env (5) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+Environment check:
+- GEMINI_API_KEY: ✓ Set
+- DEEPSEEK_API_KEY: ✓ Set
+- OLLAMA_URL: http://localhost:11434/api/generate
+- LLAMA_MODEL: llama2
+- IMAGES_DIR: /Users/mac/blog/public/images
+Generating article for category: Europe
+Trying model: Gemini
+Gemini request URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAdOAoq63pHy20qnH2gmi5GtXnr8OhdL4Q
+Gemini request body: {
+  "contents": [
+    {
+      "parts": [
+        {
+          "text": "\nWrite a detailed, SEO-optimized travel article about a trending topic, destination, or travel tips related to Europe.\n\n- Use markdown for section headings and hyperlinks (e.g., ## Section Title, [keyword](https://example.com)).\n- Start with a catchy, keyword-rich title as an H1 (# Title) and a compelling meta description.\n- Keep paragraphs short (2–4 sentences each) and separate each paragraph with a single blank line.\n- Use bullet points or numbered lists where appropriate.\n- Do not use asterisks for formatting except for markdown.\n- All links should be in markdown format and embedded in relevant keywords for SEO.\n- Do not split sentences or headings across lines.\n- Ensure the article is at least 850 words and covers the topic comprehensively.\n- Use the latest SEO best practices for 2025, including semantic keywords, featured snippet formatting, and natural language.\n- CRITICAL: Do not rush - take your time to create valuable, informative content. Include specific details, examples, and practical information.\n"
+        }
+      ]
+    }
+  ],
+  "generationConfig": {
+    "temperature": 0.7,
+    "maxOutputTokens": 2048,
+    "topP": 0.8,
+    "topK": 40
+  }
+}
+Gemini response status: 200
+Gemini response data: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "# Unveiling the Charm of Slow Travel in Portugal: A 2025 Guide to Authentic Experiences\n\n**Meta Description:** Discover the magic of slow travel in Portugal! This comprehensive guide explores charming towns, delicious cuisine, and unique experiences for an unforgettable trip.  Plan your perfect Portuguese adventure today!\n\n\n## Portugal: A Slow Travel Paradise\n\nPortugal has rapidly become a popular European destination, but its charm lies beyond the bustling tourist hotspots.  Slow travel, emphasizing mindful exploration and deeper cultural immersion, is the perfect approach to experiencing this beautiful country.  Forget rushed itineraries; embrace the rhythm of Portuguese life.\n\n\n## Why Choose Slow Travel in Portugal?\n\nSlow travel allows you to truly connect with a place. You'll have the time to savor the local cuisine, engage with the friendly locals, and uncover hidden gems often missed on whirlwind tours.  This approach fosters a more sustainable and responsible form of tourism, benefiting both you and the communities you visit.\n\n\n## Top Destinations for Slow Travel in Portugal\n\nPortugal offers a diverse range of experiences, perfect for a slow travel itinerary.  From the vibrant streets of Lisbon to the serene Algarve coast, there's something for every traveler.\n\n### Lisbon: A Blend of History and Modernity\n\nLisbon, the capital city, boasts a rich history and a vibrant cultural scene.  Explore its charming neighborhoods like Alfama, wander through its historic streets, and enjoy the delicious Pasteis de Nata. Take a [Lisbon tram tour](https://www.example.com/lisbon-tram-tour) to experience the city's unique charm.\n\nSpend time relaxing in the beautiful [Jardim da Estrela](https://www.example.com/jardim-da-estrela) gardens, offering a peaceful escape from the city buzz.  Enjoy a traditional Fado performance in the evening for an authentic cultural experience.\n\n\n### Porto: The City of Bridges and Port Wine\n\nPorto, nestled along the Douro River, is renowned for its port wine cellars and stunning bridges. Take a [Douro River cruise](https://www.example.com/douro-river-cruise) and witness the breathtaking scenery.  Explore the Ribeira district, a UNESCO World Heritage site, with its colorful buildings and narrow streets.\n\nIndulge in a [Port wine tasting](https://www.example.com/port-wine-tasting) session to learn about this iconic beverage.  Don't forget to sample the delicious Francesinha, a local sandwich specialty.\n\n\n### Algarve: Sun, Sand, and Coastal Serenity\n\nThe Algarve region offers stunning beaches, dramatic cliffs, and charming coastal towns.  Explore the hidden coves and enjoy the crystal-clear waters.  Take a leisurely walk along the [Seven Hanging Valleys Trail](https://www.example.com/seven-hanging-valleys-trail) for breathtaking coastal views.\n\nEnjoy fresh seafood at a local restaurant overlooking the ocean.  Consider staying in a charming [Algarve village](https://www.example.com/algarve-villages) for a more authentic experience.\n\n\n### Sintra: Fairytales and Palaces\n\nSintra, a UNESCO World Heritage site, is a town steeped in history and surrounded by lush forests and majestic palaces.  Explore the Pena Palace, Quinta da Regaleira, and Moorish Castle.  Lose yourself in the enchanting atmosphere of this fairytale town.\n\nTake a leisurely stroll through the [Sintra Mountains](https://www.example.com/sintra-mountains), enjoying the breathtaking views.  Have a picnic amidst the natural beauty of this magical place.\n\n\n## Planning Your Slow Travel Itinerary in Portugal\n\nCreating a slow travel itinerary involves prioritizing quality over quantity.  Choose fewer destinations and allow ample time to explore each one thoroughly.\n\n* **Research:** Thoroughly research your chosen destinations. Read travel blogs, consult guidebooks, and explore online forums.\n* **Accommodation:** Opt for boutique hotels, charming guesthouses, or Airbnb rentals to immerse yourself in local culture.\n* **Transportation:** Utilize public transportation, rent a car, or consider cycling to explore at your own pace.\n* **Activities:** Plan activities that align with your interests, allowing for flexibility and spontaneity.\n* **Food:** Embrace the local cuisine! Sample regional specialties and visit local markets.\n* **Engage:** Interact with locals, learn basic Portuguese phrases, and participate in local events.\n\n\n##  Essential Tips for Slow Travel in Portugal\n\n* **Learn basic Portuguese phrases:**  Even a few words can go a long way in enhancing your interactions with locals.\n* **Embrace spontaneity:**  Leave room in your itinerary for unexpected discoveries and detours.\n* **Pack light:**  This will make getting around much easier.\n* **Be respectful:**  Adhere to local customs and traditions.\n* **Enjoy the journey:**  Slow travel is about savoring the experience, not just reaching the destination.\n\n\n##  Sustainable Travel Practices in Portugal\n\nPortugal is committed to sustainable tourism.  Support local businesses, reduce your carbon footprint, and respect the environment during your travels.\n\n* **Choose eco-friendly accommodations:** Look for hotels and guesthouses with sustainable practices.\n* **Use public transportation:** Reduce your reliance on cars and opt for trains, buses, or trams.\n* **Support local businesses:**  Patronize local restaurants, shops, and artisans.\n* **Reduce waste:**  Carry a reusable water bottle and avoid single-use plastics.\n* **Respect nature:**  Leave no trace behind and protect the natural environment.\n\n\n## Frequently Asked Questions (FAQs)\n\n**Q: What is the best time to visit Portugal for slow travel?**\n\nA: Spring (April-May) and autumn (September-October) offer pleasant weather and fewer crowds.\n\n\n**Q: How much does slow travel in Portugal cost?**\n\nA: Costs vary depending on your travel style and preferences.  Budgeting around €50-€150 per day is feasible.\n\n\n**Q: Is Portugal safe for solo travelers?**\n\nA: Portugal is generally considered a safe country for solo travelers. However, exercise standard precautions.\n\n\n**Q: How can I learn more about Portuguese culture?**\n\nA: Take language classes, read books about Portuguese history and culture, and engage with locals.\n\n\n## Conclusion: Embrace the Portuguese Way of Life\n\nSlow travel in Portugal offers an unparalleled opportunity to experience the country's rich culture, stunning landscapes, and warm hospitality.  By embracing a slower pace, you'll create memories that will last a lifetime.  Plan your Portuguese adventure today and discover the magic of slow travel!\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.25422261630295834
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 225,
+    "candidatesTokenCount": 1369,
+    "totalTokenCount": 1594,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 225
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1369
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash",
+  "responseId": "d912aOHRBrCKqsMPjq2KEA"
+}
+Gemini produced 871 words. Title: Unveiling the Charm of Slow Travel in Portugal: A 2025 Guide to Authentic Experiences
+Generating image for article: "Unveiling the Charm of Slow Travel in Portugal: A 2025 Guide to Authentic Experiences"
+Generating image for: "Unveiling the Charm of Slow Travel in Portugal: A 2025 Guide to Authentic Experiences" (Europe)
+unsplash-fetch: 1.417s
+image-download: 1.376s
+Image saved to: /Users/mac/blog/public/images/travel-europe-1752620419179.jpg
+Error: Cannot destructure property 'data' of '(intermediate value)' as it is null.

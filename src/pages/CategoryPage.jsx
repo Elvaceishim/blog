@@ -4,6 +4,8 @@ import supabase from '../lib/supabaseClient';
 import { Helmet } from 'react-helmet-async';
 import PostCard from '../components/PostCard';
 import categories from '../data/categories';
+import Breadcrumbs from '../components/Breadcrumbs';
+import CategoryList from '../components/CategoryList';
 
 const placeholderPosts = [
   {
@@ -83,13 +85,21 @@ const CategoryPage = () => {
       </Helmet>
       <div className="card max-w-4xl w-full bg-base-100 shadow-xl p-0 border border-primary/10">
         <div className="card-body p-8">
+          <Breadcrumbs items={[
+            { label: 'Home', to: '/' },
+            { label: category ? category.name : slug }
+          ]} />
           <h1 className="card-title text-3xl text-primary mb-6">
             Category: <span className="text-primary-focus">{category ? category.name : slug}</span>
           </h1>
-          {content}
-          <div className="mt-8 text-center">
-            <Link to="/" className="btn btn-primary btn-outline">Back to Home</Link>
-          </div>
+          {category ? (
+            content
+          ) : (
+            <>
+              <div className="text-center text-gray-500 py-8 mb-4">Category not found. Please choose from the available categories below:</div>
+              <CategoryList />
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ function App() {
             <Helmet>
                 <title>Test Helmet</title>
             </Helmet>
-            <div className="flex flex-col min-h-screen font-sans bg-gradient-to-br from-amber-50 via-white to-rose-50 text-gray-800">
+            <div className="flex flex-col min-h-screen font-sans bg-gradient-to-br from-amber-50 via-white to-rose-50 text-gray-800 dark:bg-gray-900 dark:text-white">
                 <Header />
                 <main className="flex-grow flex flex-col">
                   <Routes>

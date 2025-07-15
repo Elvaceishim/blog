@@ -4,6 +4,10 @@ import supabase from '../lib/supabaseClient';
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet-async';
 import remarkGfm from 'remark-gfm';
+import PostCard from '../components/PostCard';
+import Breadcrumbs from '../components/Breadcrumbs';
+import SocialShare from '../components/SocialShare';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 function splitLongParagraphs(markdown) {
   // Split paragraphs longer than 3 sentences into multiple paragraphs
@@ -22,6 +26,7 @@ const PostPage = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
     async function fetchPost() {
@@ -38,6 +43,22 @@ const PostPage = () => {
           setError('Post not found');
         } else {
           setPost(data);
+          // Fetch related posts
+          let relatedQuery = supabase
+            .from('posts')
+            .select('*')
+            .neq('id', id)
+            .order('created_at', { ascending: false })
+            .limit(3);
+          if (data.category) {
+            relatedQuery = relatedQuery.eq('category', data.category);
+          }
+          const { data: related, error: relatedError } = await relatedQuery;
+          if (!relatedError && Array.isArray(related)) {
+            setRelatedPosts(related);
+          } else {
+            setRelatedPosts([]);
+          }
         }
       } catch (err) {
         console.error('Error:', err);
@@ -73,16 +94,21 @@ const PostPage = () => {
   const meta = post.meta_description || post.excerpt || 'Read this world-class travel article on AceVoyager.';
 
   return (
-    <main role="main" className="flex justify-center py-10 px-2 min-h-[70vh] bg-base-200">
+    <main role="main" className="flex justify-center py-10 px-2 min-h-[70vh] bg-base-200 dark:bg-gray-900 dark:text-white">
       <Helmet>
         <title>{title} | AceVoyager</title>
         <meta name="description" content={meta} />
       </Helmet>
-      <div className="card bg-base-100 shadow-xl max-w-4xl w-full p-0 border border-primary/10">
-        <div className="card-body p-8">
-          <h1 className="card-title text-3xl md:text-4xl text-primary mb-4" role="heading" aria-level="1">{title}</h1>
+      <div className="card bg-base-100 dark:bg-gray-800 shadow-xl max-w-4xl w-full p-0 border border-primary/10 flex flex-col md:flex-row">
+        <div className="card-body p-8 w-full md:w-3/4">
+          <Breadcrumbs items={[
+            { label: 'Home', to: '/' },
+            ...(post.category ? [{ label: post.category, to: `/category/${post.category}` }] : []),
+            { label: title }
+          ]} />
+          <h1 className="card-title text-3xl md:text-4xl text-primary mb-4 font-display dark:text-rose-400" role="heading" aria-level="1">{title}</h1>
           {/* Meta information */}
-          <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
+          <div className="flex items-center gap-4 text-sm text-gray-600 mb-6 dark:text-gray-300">
             <span>Category: {post.category}</span>
             <span>•</span>
             <span>{new Date(post.created_at).toLocaleDateString()}</span>
@@ -116,12 +142,12 @@ const PostPage = () => {
           )}
           {/* Meta description */}
           {post.meta_description && (
-            <div className="bg-gray-50 p-4 rounded-lg mb-6">
-              <p className="text-gray-700 italic">{post.meta_description}</p>
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-6">
+              <p className="text-gray-700 italic dark:text-white">{post.meta_description}</p>
             </div>
           )}
           {/* Content */}
-          <div className="prose prose-lg max-w-none prose-a:text-blue-600 prose-a:underline">
+          <div className="prose prose-lg max-w-none prose-a:text-rose-600 prose-a:underline dark:prose-invert dark:text-white">
             <ReactMarkdown
               children={post.content}
               remarkPlugins={[remarkGfm]}
@@ -140,10 +166,23 @@ const PostPage = () => {
               }}
             />
           </div>
+          <SocialShare post={post} />
+          <NewsletterSignup />
           <div className="card-actions justify-end mt-6">
             <Link to="/" className="btn btn-primary btn-outline">Back to Home</Link>
           </div>
         </div>
+        {/* Related Posts Sidebar (desktop) or below (mobile) */}
+        <aside className="w-full md:w-1/4 border-t md:border-t-0 md:border-l border-primary/10 p-6 bg-base-50 dark:bg-gray-800">
+          <h2 className="text-xl font-bold mb-4 font-display text-primary dark:text-rose-400">Related Posts</h2>
+          {relatedPosts.length === 0 ? (
+            <p className="text-gray-500 text-sm dark:text-gray-300">No related posts found.</p>
+          ) : (
+            <div className="space-y-6">
+              {relatedPosts.map(rp => <PostCard key={rp.id} post={rp} />)}
+            </div>
+          )}
+        </aside>
       </div>
     </main>
   );

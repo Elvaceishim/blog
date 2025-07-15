@@ -13,7 +13,7 @@ const OLLAMA_URL = 'http://localhost:11434/api/generate';
 const LLAMA_MODEL = 'llama2'; // or whatever model you have pulled
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
-const UNSPLASH_ACCESS_KEY = 'fsGVCx93QOhubfy3bGHZhoKn0aYvC0eoN-R3L67_Kyo';
+const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 
 // Create images directory if it doesn't exist
 const IMAGES_DIR = path.join(__dirname, 'public', 'images');
@@ -387,8 +387,10 @@ async function generateImage(title, category) {
     const searchQuery = `${category} travel landscape`;
     const unsplashApiUrl = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(searchQuery)}&orientation=landscape&client_id=${UNSPLASH_ACCESS_KEY}`;
     
+    console.time('unsplash-fetch');
     const response = await fetch(unsplashApiUrl);
-    
+    console.timeEnd('unsplash-fetch');
+
     if (!response.ok) {
       const errorText = await response.text();
       console.log('Unsplash error response:', errorText);
@@ -396,16 +398,18 @@ async function generateImage(title, category) {
     }
     
     const data = await response.json();
-    const imageUrl = data.urls.full;
+    const imageUrl = data.urls.regular;
     const photographer = data.user.name;
     const photographerUrl = data.user.links.html;
     const unsplashUrl = data.links.html; // This is the image's Unsplash page
 
-    const imageFileName = `travel-${category.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}.jpg`;
-    const imagePath = path.join(IMAGES_DIR, imageFileName);
-    
+    console.time('image-download');
     const imageResponse = await fetch(imageUrl);
     const imageBuffer = await imageResponse.buffer();
+    console.timeEnd('image-download');
+
+    const imageFileName = `travel-${category.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}.jpg`;
+    const imagePath = path.join(IMAGES_DIR, imageFileName);
     
     fs.writeFileSync(imagePath, imageBuffer);
     
@@ -480,7 +484,10 @@ async function postToSupabase({ title, content, meta, category, imageUrl, imageA
         created_at: new Date().toISOString()
       }
     ]);
-  if (error) throw new Error(`Supabase insert error: ${error.message}`);
+  if (error) {
+    console.error('Supabase insert error:', error);
+    throw new Error(`Supabase insert error: ${error.message}`);
+  }
   return data;
 }
 
@@ -724,6 +731,9 @@ async function main() {
       imageUrl: imagePath,
       imageAttribution: attribution
     });
+    if (!newArticle || !newArticle[0]) {
+      throw new Error('Failed to insert article into Supabase.');
+    }
     const currentId = newArticle[0].id;
 
     cleanedContent = await addAdvancedInternalLinks(cleanedContent, title, category, maxLinks, currentId);

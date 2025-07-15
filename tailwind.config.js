@@ -5,8 +5,14 @@ module.exports = {
         "./index.html",
         "./src/**/*.{js,jsx,ts,tsx}"
     ],
+    darkMode: 'class',
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+                display: ["Playfair Display", "serif"],
+            },
+        },
     },
     plugins: [
         require('daisyui')
